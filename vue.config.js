@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/events-platform/' : '',
+  publicPath: '/Events-app/',
   transpileDependencies: true,
   devServer: {
     allowedHosts: ['.develop'],
