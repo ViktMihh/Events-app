@@ -5,7 +5,7 @@ div.flex.items-center.justify-between.bg-gray-100(
   img.p-2.w-20.cursor-pointer(
     title="Inicio"
     @click="goHome"
-    src="/logo.png"
+    :src="`${publicPath}logo.png`"
     alt="Banner de MFAR", class="sm:w-40"
   )
 </template>
@@ -19,6 +19,7 @@ export default {
 
     return {
       goHome: () => router.push({ name: 'events' }),
+      publicPath: process.env.BASE_URL,
     };
   },
 };
