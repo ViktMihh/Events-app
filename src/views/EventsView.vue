@@ -18,7 +18,6 @@ import { ref } from 'vue';
 import TheHeader from '@/components/TheHeader';
 import EventsLayout from '@/components/EventsLayout';
 import TheCalendar from '@/components/TheCalendar';
-import useStore from '@/store';
 
 export default {
   components: {
@@ -27,10 +26,6 @@ export default {
     TheHeader,
   },
   setup() {
-    const store = useStore();
-    store.openKeys = ['sub1'];
-    store.selectedKeys = ['1'];
-
     const eventsData = ref('');
 
     const getEventsData = (data) => {

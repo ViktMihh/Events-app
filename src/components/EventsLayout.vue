@@ -10,7 +10,7 @@
     )
     events-simple-searcher.mb-10(
       @change-search="handleChangeSearch"
-      @fetch-events="events.visibleData = events.data"
+      @fetch-events="handleUpdateVisibleEvents"
       class="sm:mb-10"
     )
   a-skeleton(
@@ -22,11 +22,11 @@
   )
     .flex.justify-between
       .flex.text-xl.font-bold.mb-4(
-        v-if="!events.showUpcomingEvents"
-      ) Events
+        v-if="events.showUpcomingEvents"
+      ) Future events
       .flex.text-xl.font-bold.mb-4(
         v-else
-      ) Future events
+      ) Events
       div
         a-switch.mx-4(
           :checked="events.showUpcomingEvents"
@@ -69,6 +69,7 @@ export default {
       handleFetchEvents,
       handleChangeSearch,
       handleSetUpcomingEvents,
+      handleUpdateVisibleEvents,
     } = useEvents();
 
     onMounted(async () => {
@@ -80,6 +81,7 @@ export default {
       events,
       handleChangeSearch,
       handleSetUpcomingEvents,
+      handleUpdateVisibleEvents,
     };
   },
 };

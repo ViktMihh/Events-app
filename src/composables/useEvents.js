@@ -87,11 +87,16 @@ export default function () {
     }
   };
 
+  const handleUpdateVisibleEvents = () => {
+    events.visibleData = events.data;
+  };
+
   return {
     events,
     handleFetchEvents,
     handleChangeSearch,
     handleAfterSaveEvent,
     handleSetUpcomingEvents,
+    handleUpdateVisibleEvents,
   };
 }

@@ -6,15 +6,15 @@ a-input-search(
   placeholder="Search by title or project code"
   style="width: 70%;"
   class="2xl:w-full"
-  @search="handleChangeSearchTerm"
   size="middle"
   :allow-clear="false"
+  @search="handleChangeSearchTerm"
   @change="deleteSearchTerm"
 )
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 export default {
   emits: [
@@ -26,6 +26,10 @@ export default {
     const handleChangeSearchTerm = (newSearchTerm) => {
       emit('change-search', newSearchTerm);
     };
+
+    watch(searchTerm, (value) => {
+      handleChangeSearchTerm(value);
+    });
 
     const deleteSearchTerm = () => {
       document.getElementById('input').addEventListener('keydown', (event) => {
